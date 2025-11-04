@@ -1,6 +1,7 @@
 import express from 'express';
 import { followUser, unfollowUser, getAllUsers, getFollowing, getNotifications, followBack, getUserProfile, markAsRead, markAllAsRead } from '../controllers/user.controller.js';
 import jwt from 'jsonwebtoken';
+import { payWithMoMo } from '../controllers/payment.controller.js';
 
 const router = express.Router();
 
@@ -25,5 +26,6 @@ router.post('/:id/unfollow', authMiddleware, unfollowUser);
 router.post('/:id/follow-back', authMiddleware, followBack);
 router.put('/notifications/:id/read', authMiddleware, markAsRead);
 router.put('/notifications/mark-all-read', authMiddleware, markAllAsRead);
+router.post('/pay-with-momo', authMiddleware, payWithMoMo);
 
 export default router;

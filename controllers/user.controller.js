@@ -6,7 +6,7 @@ import { io } from '../server.js';
 export const getAllUsers = async (req, res) => {
   try {
     const currentUserId = req.userId;
-    const users = await User.find({}, 'username email _id isActive followers following');
+    const users = await User.find({}, 'username email _id isActive followers following plan');
     const currentUser = currentUserId ? await User.findById(currentUserId) : null;
     
     const usersWithCounts = users.map(user => {

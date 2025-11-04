@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   phoneNumber: { type: String },
   biography: { type: String },
   isActive: { type: Boolean, default: false },
+  plan: { type: String, default: 'free' },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
